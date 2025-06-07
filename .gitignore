@@ -1,13 +1,40 @@
+# OS-specific
 .DS_Store
+Thumbs.db
+
+# IDEs and editors
 .idea/
-apps/.DS_Store
-apps/detail/.DS_Store
-apps/frontend/.DS_Store
-apps/product_catalog/.DS_Store
-apps/frontend/.idea/
-apps/frontend/public/.DS_Store
-flagger/.DS_Store
-apps/detail/node_modules/
-apps/detail/output.log
-apps/frontend/node_modules/
-apps/product_catalog/__pycache__/
+.vscode/
+*.swp
+
+# Node.js
+**/node_modules/
+**/npm-debug.log
+**/yarn-debug.log
+**/yarn-error.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+terraform.tfvars
+crash.log
+
+# Docker
+*.tar
+*.img
+.dockerignore
+
+# Application logs
+**/*.log
+output.log
+
+# Miscellaneous
+.env
+.env.*
+*.bak

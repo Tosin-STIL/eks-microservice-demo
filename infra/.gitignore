@@ -1,0 +1,27 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+crash.log
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker
+*.tar
+*.img
+.dockerignore
+
+# Application logs
+**/*.log
+output.log
+
+# Miscellaneous
+.env
+.env.*
+*.bak

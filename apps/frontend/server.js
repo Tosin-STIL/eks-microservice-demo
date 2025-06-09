@@ -1,65 +1,64 @@
 const express = require('express');
-const bodyParser= require('body-parser')
-const axios = require('axios')
-const app = express()
+const bodyParser = require('body-parser');
+const axios = require('axios');
+const app = express();
 const path = require("path");
-const Prometheus = require('prom-client')
+const Prometheus = require('prom-client');
+const AWSXRay = require('aws-xray-sdk');
 
-var AWSXRay = require('aws-xray-sdk');
+// Instrumentation setup
 app.use(AWSXRay.express.openSegment('Frontend-Node'));
-
 Prometheus.collectDefaultMetrics();
 
-var baseProductUrl = process.env.BASE_URL;
-
-if(baseProductUrl === undefined)  {
-    baseProductUrl = 'http://localhost:3000/catalogDetail';
+// Fallback base URL to Kubernetes service
+let baseProductUrl = process.env.BASE_URL;
+if (!baseProductUrl) {
+    baseProductUrl = 'http://detail:3000/catalogDetail';  // ✅ Kubernetes DNS-based routing
 }
 
-console.log(baseProductUrl);
+console.log(`Catalog Detail Base URL: ${baseProductUrl}`);
 
 // ========================
-// Middlewares
+// Middleware and Static Assets
 // ========================
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, "public")));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(bodyParser.urlencoded({extended: true}))
-
+// ========================
+// Routes
+// ========================
 app.get('/', (req, res) => {
-    let query = req.query.queryStr;
-
-        const requestOne = axios.get(baseProductUrl);
-        //const requestTwo = axios.get(baseSummaryUrl);
-        //axios.all([requestOne, requestTwo]).then(axios.spread((...responses) => {
-        axios.all([requestOne]).then(axios.spread((...responses) => {
-          const responseOne = responses[0]
-       //   const responseTwo = responses[1]
-
-        //  console.log(responseOne.data.products, responseOne.data.details.vendors, responseOne.data.details.version);
-          res.render('index.ejs', {vendors:responseOne.data.vendors, version:responseOne.data.version})
-          console.log("Catalog Detail get call was Successful from frontend");
-        })).catch(errors => {
-
-       //   console.log("baseSummaryUrl " + baseSummaryUrl);
-          console.log(errors);
-          console.log("There was error in Catalog Detail get call from frontend");
-        })
-
-})
-
-app.get("/ping", (req, res, next) => {
-  res.json("Healthy")
+    axios.all([axios.get(baseProductUrl)])
+        .then(axios.spread((responseOne) => {
+            res.render('index.ejs', {
+                vendors: responseOne.data.vendors,
+                version: responseOne.data.version
+            });
+            console.log("Catalog Detail get call was Successful from frontend");
+        }))
+        .catch(errors => {
+            console.error(errors);
+            console.log("There was an error in Catalog Detail get call from frontend");
+            res.status(500).send("Internal Server Error");
+        });
 });
 
-// Export Prometheus metrics from /stats/prometheus endpoint
-app.get('/stats/prometheus', (req, res, next) => {
-  res.set('Content-Type', Prometheus.register.contentType)
-  res.end(Prometheus.register.metrics())
-})
+app.get("/ping", (req, res) => {
+    res.json("Healthy");
+});
 
+app.get('/stats/prometheus', (req, res) => {
+    res.set('Content-Type', Prometheus.register.contentType);
+    res.end(Prometheus.register.metrics());
+});
+
+// Finalize segment
 app.use(AWSXRay.express.closeSegment());
 
-app.listen(9000, function() {
-      console.log('listening on 9000')
-    })
+// ========================
+// Start Server
+// ========================
+app.listen(9000, '0.0.0.0', () => {
+    console.log('Listening on port 9000');
+});

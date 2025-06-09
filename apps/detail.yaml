@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: detail
+  labels:
+    app: detail
+spec:
+  ports:
+  - port: 3000
+    targetPort: 3000
+  selector:
+    app: detail
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: detail
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: detail
+  template:
+    metadata:
+      labels:
+        app: detail
+    spec:
+      containers:
+      - name: detail
+        image: 590183956481.dkr.ecr.us-west-2.amazonaws.com/detail-backend:latest
+        ports:
+        - containerPort: 3000

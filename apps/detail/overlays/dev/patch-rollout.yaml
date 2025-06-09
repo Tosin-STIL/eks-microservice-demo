@@ -1,0 +1,10 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: detail
+spec:
+  template:
+    spec:
+      containers:
+        - name: detail
+          image: 590183956481.dkr.ecr.us-west-2.amazonaws.com/detail:dev

@@ -1,6 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: detail
 spec:
   template:
     spec:
       containers:
         - name: detail
-          image: 590183956481.dkr.ecr.us-west-2.amazonaws.com/detail-backend:dev
+          image: 590183956481.dkr.ecr.us-west-2.amazonaws.com/detail:dev

@@ -1,9 +1,14 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: detail
 spec:
   replicas: 1
+  strategy:
+    blueGreen:
+      activeService: detail
+      previewService: detail-preview
+      autoPromotionEnabled: false
   selector:
     matchLabels:
       app: detail

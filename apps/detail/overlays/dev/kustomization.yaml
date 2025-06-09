@@ -1,4 +1,5 @@
 resources:
   - ../../base
+
 patchesStrategicMerge:
-  - patch-deployment.yaml
+  - patch-rollout.yaml

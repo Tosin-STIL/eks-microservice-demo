@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>Kubescape Scan Report</title>
+  </head>
+  <style>
+  :root {
+    --cell-padding-vertical: 0.25em;
+    --cell-padding-horizontal: 0.25em;
+    --font-family-sans: system-ui, -apple-system, sans-serif;
+  }
+  body {
+    max-width: 60em;
+    margin: auto;
+    font-family: var(--font-family-sans);
+  }
+  table {
+    width: 100%;
+    border-top: 0.1em solid black;
+    border-bottom: 0.1em solid black;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  th {
+    text-align: left;
+  }
+  td, th {
+    padding-top: var(--cell-padding-vertical);
+    padding-bottom: var(--cell-padding-vertical);
+    padding-right: var(--cell-padding-horizontal);
+    vertical-align: top;
+  }
+  td > p {
+    margin: 0;
+    word-break: break-all;
+    hyphens: auto;
+  }
+  thead {
+    border-bottom: 0.01em solid black;
+  }
+  .numericCell {
+    text-align: right;
+  }
+  .controlSeverityCell {
+    width: 10%;
+  }
+  .controlNameCell {
+    width: 50%;
+  }
+  .controlRiskCell {
+    width: 10%;
+  }
+  .resourceSeverityCell {
+    width: 10%;
+  }
+  .resourceNameCell {
+    width: 30%;
+  }
+  .resourceURLCell {
+    width: 10%;
+  }
+  .resourceRemediationCell {
+    width: 50%;
+  }
+  .logo {
+    width: 25%;
+    float: right;
+  }
+  </style>
+  <body>
+    <img class="logo" src="https://raw.githubusercontent.com/kubescape/kubescape/master/core/pkg/resultshandling/printer/v2/pdf/logo.png">
+    <h1>Kubescape Scan Report</h1>
+    
+    </br>
+    <h2>Summary:</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>All</th>
+          <th>Failed</th>
+          <th>Skipped</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>27</td>
+          <td>12</td>
+          <td>2</td>
+        </tr>
+      </tbody>
+    </table>
+    </br>
+    <h2>Details</h2>
+    <table>
+      <thead>
+      <tr>
+        <th class="controlSeverityCell">Severity</th>
+        <th class="controlNameCell">Control Name</th>
+        <th class="controlRiskCell">Failed Resources</th>
+        <th class="controlRiskCell">All Resources</th>
+        <th class="controlRiskCell">Risk Score, %</th>
+      </tr>
+      </thead>
+      <tbody>
+      
+      
+        <tr>
+          <td class="controlSeverityCell">Critical</td>
+          <td class="controlNameCell">Disable anonymous access to Kubelet service</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">0</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Critical</td>
+          <td class="controlNameCell">Enforce Kubelet client TLS authentication</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">0</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">High</td>
+          <td class="controlNameCell">Applications credentials in configuration files</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">56</td>
+          <td class="controlRiskCell numericCell">0</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">High</td>
+          <td class="controlNameCell">CVE-2021-25742-nginx-ingress-snippet-annotation-vulnerability</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">0</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">High</td>
+          <td class="controlNameCell">HostPath mount</td>
+          <td class="controlRiskCell numericCell">1</td>
+          <td class="controlRiskCell numericCell">20</td>
+          <td class="controlRiskCell numericCell">5</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">High</td>
+          <td class="controlNameCell">Instance Metadata API</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">0</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">High</td>
+          <td class="controlNameCell">List Kubernetes secrets</td>
+          <td class="controlRiskCell numericCell">10</td>
+          <td class="controlRiskCell numericCell">120</td>
+          <td class="controlRiskCell numericCell">8</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">High</td>
+          <td class="controlNameCell">Privileged container</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">20</td>
+          <td class="controlRiskCell numericCell">0</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">High</td>
+          <td class="controlNameCell">Writable hostPath mount</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">20</td>
+          <td class="controlRiskCell numericCell">0</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Medium</td>
+          <td class="controlNameCell">Access container service account</td>
+          <td class="controlRiskCell numericCell">15</td>
+          <td class="controlRiskCell numericCell">59</td>
+          <td class="controlRiskCell numericCell">25</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Medium</td>
+          <td class="controlNameCell">Administrative Roles</td>
+          <td class="controlRiskCell numericCell">1</td>
+          <td class="controlRiskCell numericCell">120</td>
+          <td class="controlRiskCell numericCell">1</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Medium</td>
+          <td class="controlNameCell">Audit logs enabled</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">1</td>
+          <td class="controlRiskCell numericCell">0</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Medium</td>
+          <td class="controlNameCell">CVE-2021-25741 - Using symlink for arbitrary host file system access.</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">0</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Medium</td>
+          <td class="controlNameCell">Cluster internal networking</td>
+          <td class="controlRiskCell numericCell">3</td>
+          <td class="controlRiskCell numericCell">8</td>
+          <td class="controlRiskCell numericCell">38</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Medium</td>
+          <td class="controlNameCell">CoreDNS poisoning</td>
+          <td class="controlRiskCell numericCell">5</td>
+          <td class="controlRiskCell numericCell">120</td>
+          <td class="controlRiskCell numericCell">4</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Medium</td>
+          <td class="controlNameCell">Delete Kubernetes events</td>
+          <td class="controlRiskCell numericCell">2</td>
+          <td class="controlRiskCell numericCell">120</td>
+          <td class="controlRiskCell numericCell">2</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Medium</td>
+          <td class="controlNameCell">Exposed sensitive interfaces</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">0</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Medium</td>
+          <td class="controlNameCell">Mount service principal</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">20</td>
+          <td class="controlRiskCell numericCell">0</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Medium</td>
+          <td class="controlNameCell">Prevent containers from allowing command execution</td>
+          <td class="controlRiskCell numericCell">1</td>
+          <td class="controlRiskCell numericCell">120</td>
+          <td class="controlRiskCell numericCell">1</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Medium</td>
+          <td class="controlNameCell">Roles with delete capabilities</td>
+          <td class="controlRiskCell numericCell">7</td>
+          <td class="controlRiskCell numericCell">120</td>
+          <td class="controlRiskCell numericCell">6</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Medium</td>
+          <td class="controlNameCell">Secret/etcd encryption enabled</td>
+          <td class="controlRiskCell numericCell">1</td>
+          <td class="controlRiskCell numericCell">1</td>
+          <td class="controlRiskCell numericCell">100</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Medium</td>
+          <td class="controlNameCell">Validate admission controller (mutating)</td>
+          <td class="controlRiskCell numericCell">4</td>
+          <td class="controlRiskCell numericCell">4</td>
+          <td class="controlRiskCell numericCell">100</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Low</td>
+          <td class="controlNameCell">Access Kubernetes dashboard</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">140</td>
+          <td class="controlRiskCell numericCell">0</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Low</td>
+          <td class="controlNameCell">Kubernetes CronJob</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">0</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Low</td>
+          <td class="controlNameCell">PSP enabled</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">1</td>
+          <td class="controlRiskCell numericCell">0</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Low</td>
+          <td class="controlNameCell">SSH server running inside container</td>
+          <td class="controlRiskCell numericCell">0</td>
+          <td class="controlRiskCell numericCell">10</td>
+          <td class="controlRiskCell numericCell">0</td>
+        </tr>
+      </tr>
+      
+        <tr>
+          <td class="controlSeverityCell">Low</td>
+          <td class="controlNameCell">Validate admission controller (validating)</td>
+          <td class="controlRiskCell numericCell">5</td>
+          <td class="controlRiskCell numericCell">5</td>
+          <td class="controlRiskCell numericCell">100</td>
+        </tr>
+      </tr>
+      
+      <tbody>
+    </table>
+    
+    </br>
+    <h2>Failed Resources:</h2>
+    </br>
+    
+    
+    <h3>Name: argo-rollouts</h3>
+      <p>ApiVersion: v1</p>
+      <p>Kind: Namespace</p>
+      <p>Name: argo-rollouts</p>
+      <p>Namespace: </p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Cluster internal networking</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0054">C-0054</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: eso</h3>
+      <p>ApiVersion: v1</p>
+      <p>Kind: Namespace</p>
+      <p>Name: eso</p>
+      <p>Namespace: </p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Cluster internal networking</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0054">C-0054</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: externalsecret-validate</h3>
+      <p>ApiVersion: admissionregistration.k8s.io/v1</p>
+      <p>Kind: ValidatingWebhookConfiguration</p>
+      <p>Name: externalsecret-validate</p>
+      <p>Namespace: </p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Low</td>
+          <td class="resourceNameCell">Validate admission controller (validating)</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0036">C-0036</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: istio-system</h3>
+      <p>ApiVersion: v1</p>
+      <p>Kind: Namespace</p>
+      <p>Name: istio-system</p>
+      <p>Namespace: </p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Cluster internal networking</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0054">C-0054</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: eks:kms-storage-migrator</h3>
+      <p>ApiVersion: rbac.authorization.k8s.io</p>
+      <p>Kind: User</p>
+      <p>Name: eks:kms-storage-migrator</p>
+      <p>Namespace: </p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">High</td>
+          <td class="resourceNameCell">List Kubernetes secrets</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0015">C-0015</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[0].resources[1]</p>  <p>relatedObjects[1].rules[0].verbs[0]</p>  <p>relatedObjects[1].rules[0].verbs[1]</p>  <p>relatedObjects[1].rules[0].verbs[2]</p>  <p>relatedObjects[1].rules[0].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">CoreDNS poisoning</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0037">C-0037</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[0].resources[0]</p>  <p>relatedObjects[1].rules[0].verbs[3]</p>  <p>relatedObjects[1].rules[0].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: istio-validator-istio-system</h3>
+      <p>ApiVersion: admissionregistration.k8s.io/v1</p>
+      <p>Kind: ValidatingWebhookConfiguration</p>
+      <p>Name: istio-validator-istio-system</p>
+      <p>Namespace: </p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Low</td>
+          <td class="resourceNameCell">Validate admission controller (validating)</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0036">C-0036</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: secretstore-validate</h3>
+      <p>ApiVersion: admissionregistration.k8s.io/v1</p>
+      <p>Kind: ValidatingWebhookConfiguration</p>
+      <p>Name: secretstore-validate</p>
+      <p>Namespace: </p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Low</td>
+          <td class="resourceNameCell">Validate admission controller (validating)</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0036">C-0036</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: istio-revision-tag-default</h3>
+      <p>ApiVersion: admissionregistration.k8s.io/v1</p>
+      <p>Kind: MutatingWebhookConfiguration</p>
+      <p>Name: istio-revision-tag-default</p>
+      <p>Namespace: </p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Validate admission controller (mutating)</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0039">C-0039</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: istiod-default-validator</h3>
+      <p>ApiVersion: admissionregistration.k8s.io/v1</p>
+      <p>Kind: ValidatingWebhookConfiguration</p>
+      <p>Name: istiod-default-validator</p>
+      <p>Namespace: </p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Low</td>
+          <td class="resourceNameCell">Validate admission controller (validating)</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0036">C-0036</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: pod-identity-webhook</h3>
+      <p>ApiVersion: admissionregistration.k8s.io/v1</p>
+      <p>Kind: MutatingWebhookConfiguration</p>
+      <p>Name: pod-identity-webhook</p>
+      <p>Namespace: </p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Validate admission controller (mutating)</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0039">C-0039</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: vpc-resource-validating-webhook</h3>
+      <p>ApiVersion: admissionregistration.k8s.io/v1</p>
+      <p>Kind: ValidatingWebhookConfiguration</p>
+      <p>Name: vpc-resource-validating-webhook</p>
+      <p>Namespace: </p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Low</td>
+          <td class="resourceNameCell">Validate admission controller (validating)</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0036">C-0036</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: vpc-resource-mutating-webhook</h3>
+      <p>ApiVersion: admissionregistration.k8s.io/v1</p>
+      <p>Kind: MutatingWebhookConfiguration</p>
+      <p>Name: vpc-resource-mutating-webhook</p>
+      <p>Namespace: </p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Validate admission controller (mutating)</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0039">C-0039</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: istio-sidecar-injector</h3>
+      <p>ApiVersion: admissionregistration.k8s.io/v1</p>
+      <p>Kind: MutatingWebhookConfiguration</p>
+      <p>Name: istio-sidecar-injector</p>
+      <p>Namespace: </p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Validate admission controller (mutating)</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0039">C-0039</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: argo-rollouts</h3>
+      <p>ApiVersion: </p>
+      <p>Kind: ServiceAccount</p>
+      <p>Name: argo-rollouts</p>
+      <p>Namespace: argo-rollouts</p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Roles with delete capabilities</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0007">C-0007</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[12].resources[0]</p>  <p>relatedObjects[1].rules[12].verbs[6]</p>  <p>relatedObjects[1].rules[12].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p>  <p>relatedObjects[1].rules[3].resources[0]</p>  <p>relatedObjects[1].rules[3].verbs[6]</p>  <p>relatedObjects[1].rules[3].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p>  <p>relatedObjects[1].rules[5].resources[0]</p>  <p>relatedObjects[1].rules[5].verbs[5]</p>  <p>relatedObjects[1].rules[5].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">High</td>
+          <td class="resourceNameCell">List Kubernetes secrets</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0015">C-0015</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[7].resources[0]</p>  <p>relatedObjects[1].rules[7].verbs[0]</p>  <p>relatedObjects[1].rules[7].verbs[1]</p>  <p>relatedObjects[1].rules[7].verbs[2]</p>  <p>relatedObjects[1].rules[7].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Access container service account</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0053">C-0053</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: argocd-application-controller</h3>
+      <p>ApiVersion: </p>
+      <p>Kind: ServiceAccount</p>
+      <p>Name: argocd-application-controller</p>
+      <p>Namespace: argocd</p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Prevent containers from allowing command execution</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0002">C-0002</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[0].resources[0]</p>  <p>relatedObjects[1].rules[0].verbs[0]</p>  <p>relatedObjects[1].rules[0].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Roles with delete capabilities</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0007">C-0007</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[0].resources[0]</p>  <p>relatedObjects[1].rules[0].verbs[0]</p>  <p>relatedObjects[1].rules[0].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">High</td>
+          <td class="resourceNameCell">List Kubernetes secrets</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0015">C-0015</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[0].resources[0]</p>  <p>relatedObjects[1].rules[0].verbs[0]</p>  <p>relatedObjects[1].rules[0].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">CoreDNS poisoning</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0037">C-0037</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[0].resources[0]</p>  <p>relatedObjects[1].rules[0].verbs[0]</p>  <p>relatedObjects[1].rules[0].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Access container service account</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0053">C-0053</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Administrative Roles</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0035">C-0035</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[0].resources[0]</p>  <p>relatedObjects[1].rules[0].verbs[0]</p>  <p>relatedObjects[1].rules[0].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Delete Kubernetes events</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0031">C-0031</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[0].resources[0]</p>  <p>relatedObjects[1].rules[0].verbs[0]</p>  <p>relatedObjects[1].rules[0].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: argocd-applicationset-controller</h3>
+      <p>ApiVersion: </p>
+      <p>Kind: ServiceAccount</p>
+      <p>Name: argocd-applicationset-controller</p>
+      <p>Namespace: argocd</p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">High</td>
+          <td class="resourceNameCell">List Kubernetes secrets</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0015">C-0015</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[5].resources[0]</p>  <p>relatedObjects[1].rules[5].verbs[0]</p>  <p>relatedObjects[1].rules[5].verbs[1]</p>  <p>relatedObjects[1].rules[5].verbs[2]</p>  <p>relatedObjects[1].rules[5].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">CoreDNS poisoning</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0037">C-0037</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[4].resources[0]</p>  <p>relatedObjects[1].rules[4].verbs[1]</p>  <p>relatedObjects[1].rules[4].verbs[5]</p>  <p>relatedObjects[1].rules[4].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Access container service account</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0053">C-0053</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: argocd-server</h3>
+      <p>ApiVersion: </p>
+      <p>Kind: ServiceAccount</p>
+      <p>Name: argocd-server</p>
+      <p>Namespace: argocd</p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Roles with delete capabilities</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0007">C-0007</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[0].resources[0]</p>  <p>relatedObjects[1].rules[0].verbs[0]</p>  <p>relatedObjects[1].rules[0].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">High</td>
+          <td class="resourceNameCell">List Kubernetes secrets</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0015">C-0015</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[0].resources[0]</p>  <p>relatedObjects[1].rules[0].verbs[1]</p>  <p>relatedObjects[1].rules[0].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">CoreDNS poisoning</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0037">C-0037</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[0].resources[0]</p>  <p>relatedObjects[1].rules[0].verbs[2]</p>  <p>relatedObjects[1].rules[0].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Access container service account</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0053">C-0053</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Delete Kubernetes events</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0031">C-0031</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[0].resources[0]</p>  <p>relatedObjects[1].rules[0].verbs[0]</p>  <p>relatedObjects[1].rules[0].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: kube-bench</h3>
+      <p>ApiVersion: batch/v1</p>
+      <p>Kind: Job</p>
+      <p>Name: kube-bench</p>
+      <p>Namespace: default</p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">High</td>
+          <td class="resourceNameCell">HostPath mount</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0048">C-0048</a></td>
+          <td class="resourceRemediationCell"> <p>spec.template.spec.volumes[10]</p>  <p>spec.template.spec.containers[0].volumeMounts[10]</p>  <p>spec.template.spec.volumes[8]</p>  <p>spec.template.spec.containers[0].volumeMounts[8]</p>  <p>spec.template.spec.volumes[5]</p>  <p>spec.template.spec.containers[0].volumeMounts[5]</p>  <p>spec.template.spec.volumes[6]</p>  <p>spec.template.spec.containers[0].volumeMounts[6]</p>  <p>spec.template.spec.volumes[11]</p>  <p>spec.template.spec.containers[0].volumeMounts[11]</p>  <p>spec.template.spec.volumes[7]</p>  <p>spec.template.spec.containers[0].volumeMounts[7]</p>  <p>spec.template.spec.volumes[9]</p>  <p>spec.template.spec.containers[0].volumeMounts[9]</p>  <p>spec.template.spec.volumes[0]</p>  <p>spec.template.spec.containers[0].volumeMounts[0]</p>  <p>spec.template.spec.volumes[1]</p>  <p>spec.template.spec.containers[0].volumeMounts[1]</p>  <p>spec.template.spec.volumes[4]</p>  <p>spec.template.spec.containers[0].volumeMounts[4]</p>  <p>spec.template.spec.volumes[3]</p>  <p>spec.template.spec.containers[0].volumeMounts[3]</p>  <p>spec.template.spec.volumes[2]</p>  <p>spec.template.spec.containers[0].volumeMounts[2]</p> </td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: eks-us-east-1</h3>
+      <p>ApiVersion: eks.amazonaws.com/v1</p>
+      <p>Kind: ClusterDescribe</p>
+      <p>Name: eks-us-east-1</p>
+      <p>Namespace: eks</p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Secret/etcd encryption enabled</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0066">C-0066</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: eso-external-secrets</h3>
+      <p>ApiVersion: </p>
+      <p>Kind: ServiceAccount</p>
+      <p>Name: eso-external-secrets</p>
+      <p>Namespace: eso</p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Roles with delete capabilities</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0007">C-0007</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[6].resources[0]</p>  <p>relatedObjects[1].rules[6].verbs[5]</p>  <p>relatedObjects[1].rules[6].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">High</td>
+          <td class="resourceNameCell">List Kubernetes secrets</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0015">C-0015</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[6].resources[0]</p>  <p>relatedObjects[1].rules[6].verbs[0]</p>  <p>relatedObjects[1].rules[6].verbs[1]</p>  <p>relatedObjects[1].rules[6].verbs[2]</p>  <p>relatedObjects[1].rules[6].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Access container service account</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0053">C-0053</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: eso-external-secrets</h3>
+      <p>ApiVersion: </p>
+      <p>Kind: ServiceAccount</p>
+      <p>Name: eso-external-secrets</p>
+      <p>Namespace: eso</p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Access container service account</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0053">C-0053</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: external-secrets-cert-controller</h3>
+      <p>ApiVersion: </p>
+      <p>Kind: ServiceAccount</p>
+      <p>Name: external-secrets-cert-controller</p>
+      <p>Namespace: eso</p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">High</td>
+          <td class="resourceNameCell">List Kubernetes secrets</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0015">C-0015</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[5].resources[0]</p>  <p>relatedObjects[1].rules[5].verbs[0]</p>  <p>relatedObjects[1].rules[5].verbs[1]</p>  <p>relatedObjects[1].rules[5].verbs[2]</p>  <p>relatedObjects[1].rules[5].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Access container service account</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0053">C-0053</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: istiod</h3>
+      <p>ApiVersion: </p>
+      <p>Kind: ServiceAccount</p>
+      <p>Name: istiod</p>
+      <p>Namespace: istio-system</p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Roles with delete capabilities</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0007">C-0007</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[1].resources[0]</p>  <p>relatedObjects[1].rules[1].verbs[5]</p>  <p>relatedObjects[1].rules[1].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">High</td>
+          <td class="resourceNameCell">List Kubernetes secrets</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0015">C-0015</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[1].resources[0]</p>  <p>relatedObjects[1].rules[1].verbs[1]</p>  <p>relatedObjects[1].rules[1].verbs[2]</p>  <p>relatedObjects[1].rules[1].verbs[3]</p>  <p>relatedObjects[1].rules[1].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Access container service account</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0053">C-0053</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: istiod</h3>
+      <p>ApiVersion: </p>
+      <p>Kind: ServiceAccount</p>
+      <p>Name: istiod</p>
+      <p>Namespace: istio-system</p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Roles with delete capabilities</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0007">C-0007</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[0].resources[0]</p>  <p>relatedObjects[1].rules[0].verbs[6]</p>  <p>relatedObjects[1].rules[0].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p>  <p>relatedObjects[1].rules[3].resources[0]</p>  <p>relatedObjects[1].rules[3].verbs[6]</p>  <p>relatedObjects[1].rules[3].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Access container service account</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0053">C-0053</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: istiod</h3>
+      <p>ApiVersion: </p>
+      <p>Kind: ServiceAccount</p>
+      <p>Name: istiod</p>
+      <p>Namespace: istio-system</p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">High</td>
+          <td class="resourceNameCell">List Kubernetes secrets</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0015">C-0015</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[19].resources[0]</p>  <p>relatedObjects[1].rules[19].verbs[0]</p>  <p>relatedObjects[1].rules[19].verbs[1]</p>  <p>relatedObjects[1].rules[19].verbs[2]</p>  <p>relatedObjects[1].rules[19].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">CoreDNS poisoning</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0037">C-0037</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[12].resources[0]</p>  <p>relatedObjects[1].rules[12].verbs[4]</p>  <p>relatedObjects[1].rules[12].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Access container service account</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0053">C-0053</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: istio-reader-service-account</h3>
+      <p>ApiVersion: </p>
+      <p>Kind: ServiceAccount</p>
+      <p>Name: istio-reader-service-account</p>
+      <p>Namespace: istio-system</p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">High</td>
+          <td class="resourceNameCell">List Kubernetes secrets</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0015">C-0015</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[1].resources[6]</p>  <p>relatedObjects[1].rules[1].verbs[0]</p>  <p>relatedObjects[1].rules[1].verbs[1]</p>  <p>relatedObjects[1].rules[1].verbs[2]</p>  <p>relatedObjects[1].rules[1].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Access container service account</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0053">C-0053</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: legacy-service-account-token-cleaner</h3>
+      <p>ApiVersion: </p>
+      <p>Kind: ServiceAccount</p>
+      <p>Name: legacy-service-account-token-cleaner</p>
+      <p>Namespace: kube-system</p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Roles with delete capabilities</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0007">C-0007</a></td>
+          <td class="resourceRemediationCell"> <p>relatedObjects[1].rules[1].resources[0]</p>  <p>relatedObjects[1].rules[1].verbs[0]</p>  <p>relatedObjects[1].rules[1].apiGroups[0]</p>  <p>relatedObjects[0].subjects[0]</p>  <p>relatedObjects[0].roleRef.name</p> </td>
+        </tr>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Access container service account</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0053">C-0053</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: volumeattributesclass-protection-controller</h3>
+      <p>ApiVersion: </p>
+      <p>Kind: ServiceAccount</p>
+      <p>Name: volumeattributesclass-protection-controller</p>
+      <p>Namespace: kube-system</p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Access container service account</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0053">C-0053</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: leader-election-controller</h3>
+      <p>ApiVersion: </p>
+      <p>Kind: ServiceAccount</p>
+      <p>Name: leader-election-controller</p>
+      <p>Namespace: kube-system</p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Access container service account</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0053">C-0053</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Name: validatingadmissionpolicy-status-controller</h3>
+      <p>ApiVersion: </p>
+      <p>Kind: ServiceAccount</p>
+      <p>Name: validatingadmissionpolicy-status-controller</p>
+      <p>Namespace: kube-system</p>
+      <table>
+        <thead>
+        <tr>
+          <th class="resourceSeverityCell">Severity</th>
+          <th class="resourceNameCell">Name</th>
+          <th class="resourceURLCell">Docs</th>
+          <th class="resourceRemediationCell">Assisted Remediation</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="resourceSeverityCell">Medium</td>
+          <td class="resourceNameCell">Access container service account</td>
+          <td class="resourceURLCell"><a href="https://hub.armosec.io/docs/c-0053">C-0053</a></td>
+          <td class="resourceRemediationCell"></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    
+  </body>
+</html>
